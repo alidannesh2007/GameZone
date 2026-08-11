@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+{% block content %}
+    <div>
+        <div class="game_container">
+            <img src="{{game.game_img.url}}" alt="">
+            <div class="game_info">
+                <h3>{{game.name}}</h3>
+                <p>{{game.Genre}}</p>
+                <p>{{game.download}}</p>
+            </div>
+        </div>
+
+        <div class="content_container">
+            <p>{{games.content}}</p>
+            <a href="www.sarzamindownload.com" class="button">download</a>
+        </div>
+
+            <h2 style="text-align: center;">comments</h2>
+        
+        <div class="comments">   
+            {% for comment in comments %}
+                <div class="comment">
+                    <img src="{{comment.user.profile.avatar.url}}"  class="avatar">
+                    <h4>{{comment.user}}</h4>
+                    <p>{{comment.comment}}</p>
+                    <a href="{% url 'update_comment' comment.id %}" class="btn-comment">edit your comment</a>
+                    <a href="{% url 'delete_comment' comment.id %}" class="btn-comment">delete your comment</a>
+                </div>
+            {% endfor %}
+   
+            <div class="comment-button">
+                <a href="{% url 'add_comment' game.id %}" class="btn-comment">
+                    add comment
+                </a>
+            </div>
+{% endblock %}

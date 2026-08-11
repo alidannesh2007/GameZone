@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="profile-card">
+
+    <img src="{{user.profile.avatar.url}}"  class="avatar">
+
+    <h2>پروفایل کاربر</h2>
+
+    <div class="field">
+        <span>نام کاربری</span>
+        <p>{{ user.username }}</p>
+    </div>
+
+    <div class="field">
+        <span>ایمیل</span>
+        <p>{{ user.email }}</p>
+    </div>
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="profile-card">
+
+            <!-- <div class="profile-image">
+                <img src="{{user.profile.avatar.url}}" alt="Profile">
+            </div> -->
+
+            <div class="upload-section">
+                <!-- <input type="file" id="profile-img"> -->
+                {{u_form|crispy }}
+                {{a_form|crispy }}
+                <button type="submit" class="update-btn">
+                    Update Profile
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

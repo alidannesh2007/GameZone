@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- <h1>logout</h1> -->
+    
+<div class="auth-container">
+    <div class="auth-card logout-box">
+
+        <h2>Logged Out</h2>
+
+        <p>You have successfully logged out.</p>
+
+        <a href="{% url 'login' %}">
+            <button class="auth-btn">
+                Login Again
+            </button>
+        </a>
+
+        <div class="auth-link">
+            <a href="{% url 'GameZone' %}">Back to Home</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

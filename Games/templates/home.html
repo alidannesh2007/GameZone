@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h2 style="text-align: center;">
+        Games of the month
+    </h2>
+    <div class="games-container">
+        {% for game in games%}
+            <div class="game_box">
+                <img src="{{game.game_img.url}}" alt="#">
+                <div class="boxtext">
+                    <h3 >{{game.name}}</h3>
+                    <p>Genre: {{game.Genre}} </p>
+                    <p> date release: {{game.date_release}} </p>
+                    <a href="{% url 'Game information' game.id%}" class="btn">View</a>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+{% endblock %}

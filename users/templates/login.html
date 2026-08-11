@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+    <!-- <div class="all  _content">
+        <form method="post" class="form_content">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" class="button" >log in</button>
+        </form>    
+        
+    </div> -->
+
+    <div class="auth-container">
+    <div class="auth-card">
+
+        <h2>Login</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+
+            <button class="auth-btn">
+                Login
+            </button>
+        </form>
+
+        <div class="auth-link">
+            Don't have an account?
+            <a href="{% url 'register' %}">Register</a>
+        </div>
+
+    </div>
+</div>
+    
+{% endblock %}

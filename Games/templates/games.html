@@ -1,0 +1,81 @@
+{%extends 'base.html'%}
+
+{% block content %}
+        <h2 id="title">game list</h2>
+
+    <div class="games-container">
+        {% for game in games %}
+        <div class="game_box">
+            <img src="{{game.game_img.url}}" alt="#">
+            <div class="boxtext">
+                <h3> {{game.name}} </h3>
+                <!-- <p>{{game.content}}</p> -->
+                <p>{{game.date_release}}</p>
+                <a href="{% url 'Game information' game.id%}" class="btn">View</a>
+            </div> 
+        </div>
+        {% endfor %}
+    </div>
+        {% if is_paginated %}
+                
+            {%if page_obj.has_previous%}
+
+                {% if page_obj.previous_page_number == 1%}
+
+                    <a href="?page=1" class="btn">1</a>
+
+                {% else %}
+
+                    <a href="?page=1" class="btn">1</a>
+                    <a href="?page={{page_obj.previous_page_number}}" class="btn">{{page_obj.previous_page_number}}</a>
+
+                {% endif %}
+
+            {% endif %}
+
+            {%if page_obj.has_next%}
+
+                {% if page_obj.next_page_number == page_obj.paginator.num_pages%}
+
+                    <a href="?page={{page_obj.paginator.num_pages}}" class="btn">{{page_obj.paginator.num_pages}}</a>
+
+                {% else %}
+
+                    <a href="?page={{page_obj.next_page_number}}" class="btn">{{page_obj.next_page_number}}</a>
+                    <a href="?page={{page_obj.paginator.num_pages}}" class="btn">{{page_obj.paginator.num_pages}}</a>
+                          
+                {% endif %}
+
+            {% endif %}
+
+        {% endif %} 
+
+{% endblock %}
+
+
+
+    <h2 id="title">game list</h2>
+
+    <div class="games-container">
+        
+            <div class="game_box">
+                <img src="{{game.game_img.url}}" alt="#">
+                <div class="boxtext">
+                    <h3> game name </h3>
+                    <p>Lorem, ipsum.</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+                
+                
+            </div>
+
+            <div class="game_box">
+                <img src="assest/call-of-duty-black-ops-6-zombies-5120x2880-27382 - Copy.jpg" alt="#">
+                <div class="boxtext">
+                    <h3> game name </h3>
+                    <p>Lorem, ipsum.</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+                
+            </div>
+    </div>
