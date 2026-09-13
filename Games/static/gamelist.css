@@ -39,7 +39,7 @@
 }
 
 
-.btn{
+/* .btn{
     display: inline-block;
     margin: 10px;
     padding: 8px 12px;
@@ -53,6 +53,23 @@
 
 .btn:hover{
     background-color: #dadada;
+} */
+
+.btn {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 8px 25px;
+    background: #2f97c4;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    width: auto;
+}
+
+.btn:hover {
+    background-color: #dadada;
 }
 
 .index{
@@ -65,4 +82,16 @@
     margin: 5px;
     padding: 20px;
     /* text-align: left; */
+}
+
+
+.games-container ~ .btn {
+    width: auto !important;
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 8px 25px;
+}
+
+.games-container + .btn {
+    margin-left: 5px;
 }
